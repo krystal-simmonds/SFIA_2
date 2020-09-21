@@ -7,4 +7,4 @@ RUN pip3 install Flask
 # Copy the app file into the image working directory
 COPY app.py .
 # Run 'python app.py' on container start-up. 
-ENTRYPOINT ["python", "app.py"]
+ENTRYPOINT ["python3", "app.py"]
