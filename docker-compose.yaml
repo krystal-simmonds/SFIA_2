@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  frontend:
+    build: ./frontend
+    image: app-frontend:latest
+    ports:
+    - target: 80
+      published: 80
+    depends_on:
+      - backend
+  backend:
+    build: ./backend
+    image: app-backend:latest
+    environment:
+      - DB_PASSWORD=${DB_PASSWORD}
+    depends_on:
+      - database
+  database:
+    build: ./database
+    image: mysql-db:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
