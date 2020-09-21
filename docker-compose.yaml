@@ -1,22 +1,42 @@
 version: '3.8'
 services:
+
+  nginx:
+    image: nginx:latest
+    ports:
+    - target: 80
+      published: 80
+      protocol: tcp
+    - target: 443
+      published: 443
+      protocol: tcp
+    volumes:
+    - type: bind
+      source: ./nginx/nginx.conf
+      target: /etc/nginx/nginx.conf
+  
   frontend:
     build: ./frontend
-    image: app-frontend:latest
+    image: frontend-service:latest
     ports:
     - target: 80
       published: 80
     depends_on:
       - backend
+  
   backend:
     build: ./backend
-    image: app-backend:latest
+    image: backend-service:latest
     environment:
       - DB_PASSWORD=${DB_PASSWORD}
     depends_on:
       - database
+  
   database:
     build: ./database
     image: mysql-db:latest
     environment:
       - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+    ports:
+    - target: 3306
+      published: 3306
