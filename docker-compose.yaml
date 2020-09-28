@@ -36,7 +36,7 @@ services:
       - database
   
   database:
-    image: mysql-db:latest
+    image: mysql:latest
     environment:
       - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
     ports:
