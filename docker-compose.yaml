@@ -27,6 +27,9 @@ services:
   backend:
     build: ./backend
     image: backend-service:latest
+    ports:
+    - target: 80
+      published: 80
     environment:
       - DB_PASSWORD=${DB_PASSWORD}
     depends_on:
