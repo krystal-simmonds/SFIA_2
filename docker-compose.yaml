@@ -36,7 +36,6 @@ services:
       - database
   
   database:
-    build: ./database
     image: mysql-db:latest
     environment:
       - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
