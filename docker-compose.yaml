@@ -2,6 +2,7 @@ version: '3.8'
 services:
 
   nginx:
+    build: ./nginx
     image: nginx:latest
     ports:
     - target: 80
