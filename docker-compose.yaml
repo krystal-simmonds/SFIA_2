@@ -19,8 +19,8 @@ services:
     build: ./frontend
     image: frontend-service:latest
     ports:
-    - target: 80
-      published: 80
+    - target: 5000
+      published: 5000
     depends_on:
       - backend
   
@@ -28,8 +28,8 @@ services:
     build: ./backend
     image: backend-service:latest
     ports:
-    - target: 80
-      published: 80
+    - target: 5001
+      published: 5001
     environment:
       - DB_PASSWORD=${DB_PASSWORD}
     depends_on:
