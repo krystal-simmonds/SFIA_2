@@ -4,24 +4,6 @@ networks:
     appnetwork:
     
 services:
-
-  nginx:
-    container_name: nginx
-    build: ./nginx
-    image: nginx:latest
-    ports:
-    - target: 80
-      published: 80
-      protocol: tcp
-    - target: 443
-      published: 443
-      protocol: tcp
-    volumes:
-    - type: bind
-      source: ./nginx/nginx.conf
-      target: /etc/nginx/nginx.conf
-    networks: 
-       - appnetwork
   
   frontend:
     container_name: frontend
