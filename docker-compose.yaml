@@ -4,8 +4,6 @@ networks:
     appnetwork:
     
 services:
-<<<<<<< HEAD
-=======
 
   nginx:
     container_name: nginx
@@ -24,7 +22,6 @@ services:
       target: ./nginx/nginx.conf
     networks: 
        - appnetwork
->>>>>>> b2314eecad7e21df723a4fbef04a1dbbe525bb61
   
   frontend:
     container_name: frontend
