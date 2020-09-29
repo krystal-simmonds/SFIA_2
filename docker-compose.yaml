@@ -19,7 +19,7 @@ services:
     volumes:
     - type: bind
       source: ./nginx/nginx.conf
-      target: /etc/nginx/nginx.conf
+      target: ./nginx/nginx.conf
     networks: 
        - appnetwork
   
