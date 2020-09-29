@@ -6,6 +6,7 @@ networks:
 services:
 
   nginx:
+    networks: appnetwork
     container_name: nginx
     build: ./nginx
     image: nginx:latest
@@ -20,9 +21,9 @@ services:
     - type: bind
       source: ./nginx/nginx.conf
       target: /etc/nginx/nginx.conf
-    networks: appnetwork
   
   frontend:
+    networks: appnetwork
     container_name: frontend
     build: ./frontend
     image: frontend-service:latest
@@ -31,10 +32,10 @@ services:
       published: 5000
     depends_on:
       - backend
-    networks: appnetwork
   
   
   backend:
+    networks: appnetwork
     container_name: backend
     build: ./backend
     image: backend-service:latest
@@ -45,9 +46,9 @@ services:
       - DB_PASSWORD=${DB_PASSWORD}
     depends_on:
       - database
-    networks: appnetwork
   
   database:
+    networks: appnetwork
     container_name: database
     image: mysql:latest
     environment:
@@ -55,4 +56,3 @@ services:
     ports:
     - target: 3306
       published: 3306
-    networks: appnetwork
