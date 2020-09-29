@@ -1,7 +1,12 @@
 version: '3.8'
+
+networks: 
+    appnetwork:
+    
 services:
 
   nginx:
+    container_name: nginx
     build: ./nginx
     image: nginx:latest
     ports:
@@ -15,8 +20,10 @@ services:
     - type: bind
       source: ./nginx/nginx.conf
       target: /etc/nginx/nginx.conf
+    networks: appnetwork
   
   frontend:
+    container_name: frontend
     build: ./frontend
     image: frontend-service:latest
     ports:
@@ -24,8 +31,11 @@ services:
       published: 5000
     depends_on:
       - backend
+    networks: appnetwork
+  
   
   backend:
+    container_name: backend
     build: ./backend
     image: backend-service:latest
     ports:
@@ -35,11 +45,14 @@ services:
       - DB_PASSWORD=${DB_PASSWORD}
     depends_on:
       - database
+    networks: appnetwork
   
   database:
+    container_name: database
     image: mysql:latest
     environment:
       - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
     ports:
     - target: 3306
       published: 3306
+    networks: appnetwork
