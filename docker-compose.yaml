@@ -7,7 +7,7 @@ services:
 
   nginx:
     container_name: nginx
-    build: ./nginx
+    #build: ./nginx
     image: nginx:latest
     ports:
     - target: 80
