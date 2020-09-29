@@ -5,13 +5,13 @@ FROM python:3.7
 WORKDIR /application
 
 # Copy 'requirements.txt' file
-COPY . .
+COPY ./requirements.txt .
 
 # Install application dependencies using 'requirements.txt'
 RUN pip3 install -r requirements.txt
 
 # Copy the app file into the image working directory
-COPY app.py .
+COPY . .
 
 # Run 'python app.py' on container start-up. 
 ENTRYPOINT ["python3", "app.py"]
