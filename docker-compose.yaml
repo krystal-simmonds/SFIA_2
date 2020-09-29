@@ -4,6 +4,27 @@ networks:
     appnetwork:
     
 services:
+<<<<<<< HEAD
+=======
+
+  nginx:
+    container_name: nginx
+    build: ./nginx
+    image: nginx:latest
+    ports:
+    - target: 80
+      published: 80
+      protocol: tcp
+    - target: 443
+      published: 443
+      protocol: tcp
+    volumes:
+    - type: bind
+      source: ./nginx/nginx.conf
+      target: ./nginx/nginx.conf
+    networks: 
+       - appnetwork
+>>>>>>> b2314eecad7e21df723a4fbef04a1dbbe525bb61
   
   frontend:
     container_name: frontend
