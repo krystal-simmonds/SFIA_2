@@ -36,7 +36,7 @@ services:
     container_name: database
     image: mysql:latest
     environment:
-      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+       - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
     ports:
     - target: 3306
       published: 3306
