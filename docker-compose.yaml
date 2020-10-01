@@ -55,8 +55,7 @@ services:
     environment:
 #       - MYSQL_PASSWORD: password
 #       -  MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-         - MYSQL_ALLOW_EMPTY_PASSWORD=1
- 
+         - MYSQL_ALLOW_EMPTY_PASSWORD=1 
     ports:
     - target: 3306
       published: 3306
