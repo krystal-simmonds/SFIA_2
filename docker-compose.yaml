@@ -25,9 +25,8 @@ services:
   database:
     image: mysql:latest
     environment:
-#       - MYSQL_PASSWORD: password
-#       -  MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-         - MYSQL_ALLOW_EMPTY_PASSWORD=1 
+        - MYSQL_PASSWORD: ${DB_PASSWORD}
+        -  MYSQL_ROOT_PASSWORD: ${DB_PASSWORD} 
     ports:
     - target: 3306
       published: 3306
