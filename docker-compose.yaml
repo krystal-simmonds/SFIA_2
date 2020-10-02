@@ -26,6 +26,7 @@ services:
     image: mysql:latest
     environment:
      # - MYSQL_PASSWORD= "pass"
+      - MYSQL_USER=krystal
       - MYSQL_ROOT_PASSWORD="password" 
     ports:
     - target: 3306
