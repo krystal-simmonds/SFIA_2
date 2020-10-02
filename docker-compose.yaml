@@ -11,8 +11,8 @@ services:
       protocol: tcp
     volumes:
     - type: bind
-      source: /etc/nginx/nginx.conf
-      target: ./nginx/nginx/.conf
+      source: ./nginx/nginx.conf
+      target: /etc/nginx/nginx.conf
   
   frontend:
     build: ./frontend
