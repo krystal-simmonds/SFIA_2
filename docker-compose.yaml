@@ -18,15 +18,15 @@ services:
     - target: 5001
       published: 5001
     environment:
-      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_PASSWORD="beautifuldb"
     depends_on:
       - database
   
   database:
     image: mysql:latest
     environment:
-        - MYSQL_PASSWORD: "pass"
-        -  MYSQL_ROOT_PASSWORD: ${DB_PASSWORD} 
+     # - MYSQL_PASSWORD= "pass"
+      - MYSQL_ROOT_PASSWORD ="password" 
     ports:
     - target: 3306
       published: 3306
