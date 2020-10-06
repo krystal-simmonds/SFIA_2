@@ -4,47 +4,39 @@ services:
 
   frontend:
     build: ./frontend
-    image: frontend-service:latest
-    ports:
-    - target: 5000
-      published: 5000
+    expose:
+      - 5000
     depends_on:
       - backend
   
   backend:
     build: ./backend
-    image: backend-service:latest
-    ports:
-    - target: 5001
-      published: 5001
+    expose:
+      - 5001
     environment:
       - DB_PASSWORD="beautifuldb"
+      - DATABASE_URI="mysql+pymysql://root:beautifuldb@mysql:3306/users"
     depends_on:
       - database
   
   database:
-    image: mysql:latest
+    build: ./database
     environment:
-     # - MYSQL_PASSWORD= "pass"
-      - MYSQL_USER=krystal
-      - MYSQL_ROOT_PASSWORD="password" 
-    ports:
-    - target: 3306
-      published: 3306
+     - MYSQL_ROOT_PASSWORD=password
+    expose:
+     - 3306
     volumes:
-       - /database:/var/lib/mysql
+     - /database:/var/lib/mysql
        
        
   nginx:
     #build: ./nginx
     image: nginx:latest
     ports:
-    - target: 80
-      published: 80
-      protocol: tcp
+     - 80:80
     volumes:
-    - type: bind
-      source: ./nginx/nginx.conf
-      target: /etc/nginx/nginx.conf
+     - type: bind
+       source: ./nginx/nginx.conf
+       target: /etc/nginx/nginx.conf
     depends_on:
       - frontend
