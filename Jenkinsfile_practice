@@ -1,0 +1,10 @@
+pipeline{
+        agent any
+        stages{
+            stage('Echo ABCD'){
+                steps{
+                    sh "echo ${ABCD}"
+                }
+            }
+        }
+}
