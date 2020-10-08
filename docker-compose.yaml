@@ -16,6 +16,7 @@ services:
     environment:
       - DB_PASSWORD=${DB_PASSWORD}
       - DATABASE_URI=${DATABASE_URI}
+      - TEST_DATABASE_URI=${TEST_DATABASE_URI}
     depends_on:
       - database
   
