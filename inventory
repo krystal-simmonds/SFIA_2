@@ -1,0 +1,9 @@
+[host]
+#amazon ec2 instance DNS
+ec2-18-132-205-191.eu-west-2.compute.amazonaws.com
+
+[host:vars]
+ansible_user=ubuntu
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+#PEM KEY OF AWS INSTANCE
+ansible_ssh_private_key_file=~/.ssh/JenkinsKeyPair.pem
