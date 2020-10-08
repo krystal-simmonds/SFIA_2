@@ -31,8 +31,8 @@ pipeline{
                 
             stage('Spin up docker compose'){
                 steps{
-                    sh ''' 
-                    sudo docker-compose up -d
+                    sh '''
+                    sudo -E MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD} DATABASE_URI=${DATABASE_URI} DB_PASSWORD=${DB_PASSWORD} TEST_DATABASE_URI=${TEST_DATABASE_URI} docker-compose up -d
                     '''
                 }
             }
