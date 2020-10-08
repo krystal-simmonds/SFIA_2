@@ -3,7 +3,10 @@ pipeline{
         stages{
             stage('Echo ABCD'){
                 steps{
-                    sh "echo ${ABCD}"
+                    withcredentials([string (credentialsId: 'ABCD', variable: 'A')]){
+                   
+                    sh "echo ${A}"
+                    }
                 }
             }
         }
