@@ -3,9 +3,9 @@ pipeline{
         stages{
             stage('Echo ABCD'){
                 steps{
-                    withcredentials([string (credentialsId: 'ABCD', variable: 'A')]){
+                    withcredentials([string (credentialsId: 'ABCD', variable: 'ABCD')]){
                    
-                    sh "echo ${A}"
+                    sh "echo ${ABCD}"
                     }
                 }
             }
