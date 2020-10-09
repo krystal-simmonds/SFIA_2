@@ -1,7 +1,7 @@
 pipeline{
         agent any
         stages{
-            stage('Clone Git Repo '){
+            stage('Clone Git Repo && pull Git Repo'){
                 steps{
                     sh '''
                     cd ~
