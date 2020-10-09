@@ -2,7 +2,12 @@ provider "aws" {
   region = "eu-west-2"
 }
 
-resource "aws_instance" "default" {
+resource "aws_instance" "jenkins" {
+  ami           = var.ami
+  instance_type = var.type
+}
+
+resource "aws_instance" "test" {
   ami           = var.ami
   instance_type = var.type
 }
