@@ -3,14 +3,14 @@ version: '3.8'
 services:
 
   frontend:
-    build: ./frontend
+    build: krystalsimmonds/sfia_2_frontend
     expose:
       - 5000
     depends_on:
       - backend
   
   backend:
-    build: ./backend
+    build: krystalsimmonds/sfia_2_backend
     expose:
       - 5001
     environment:
@@ -21,7 +21,7 @@ services:
       - database
   
   database:
-    build: ./database
+    build: krystalsimmonds/sfia_2_database
     environment:
      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
     expose:
@@ -31,7 +31,6 @@ services:
        
        
   nginx:
-    #build: ./nginx
     image: nginx:latest
     ports:
      - 80:80
