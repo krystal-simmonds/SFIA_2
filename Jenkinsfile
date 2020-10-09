@@ -1,9 +1,13 @@
 pipeline{
         agent any
         stages{
-            stage('Pull Git Repo '){
+            stage('Clone Git Repo '){
                 steps{
-                    sh "git pull https://github.com/krystal-simmonds/SFIA_2.git"
+                    sh '''
+                    cd ~
+                    git clone https://github.com/krystal-simmonds/SFIA_2.git
+                    git pull https://github.com/krystal-simmonds/SFIA_2.git
+                    '''
                 }
             }
             stage('Install Docker'){
@@ -29,7 +33,7 @@ pipeline{
                 }
             }
                 
-            stage('Spin up docker compose'){
+            stage('Spin up containers'){
                 steps{
                 withCredentials([file(credentialsId: 'project', variable: 'project'), string(credentialsId: 'DATABASE_URI', variable: 'DATABASE_URI'), string(credentialsId: 'TEST_DATABASE_URI', variable: 'TEST_DATABASE_URI'), string(credentialsId: 'MYSQL_ROOT_PASSWORD', variable: 'MYSQL_ROOT_PASSWORD'), string(credentialsId: 'DB_PASSWORD', variable: 'DB_PASSWORD')]){
                     sh '''
