@@ -1,6 +1,6 @@
 [host]
 #amazon ec2 instance DNS
-ec2-18-132-205-191.eu-west-2.compute.amazonaws.com
+3.10.142.58
 
 [host:vars]
 ansible_user=ubuntu

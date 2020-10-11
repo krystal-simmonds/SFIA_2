@@ -5,11 +5,13 @@ provider "aws" {
 resource "aws_instance" "jenkins" {
   ami           = var.ami
   instance_type = var.type
+  key_name      = "JenkinsKeyPair"
 }
 
 resource "aws_instance" "test" {
   ami           = var.ami
   instance_type = var.type
+  key_name = "testkey"
 }
 
 resource "aws_db_instance" "default" {

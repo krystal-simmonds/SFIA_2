@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: host
   # run as the root user on the remote machine
   become: true
   # list of tasks to run on the remote machine
