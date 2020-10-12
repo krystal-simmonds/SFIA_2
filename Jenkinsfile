@@ -9,6 +9,7 @@ pipeline{
                         then git pull https://github.com/krystal-simmonds/SFIA_2.git
                     else
                         git clone https://github.com/krystal-simmonds/SFIA_2.git
+                    fi
                     '''
                 }
             }
