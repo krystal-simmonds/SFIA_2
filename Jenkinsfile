@@ -28,7 +28,7 @@ pipeline{
                 steps{
                 withCredentials([file(credentialsId: 'TestServKeyPair', variable: 'TestServKeyPair'), string(credentialsId: 'DATABASE_URI', variable: 'DATABASE_URI'), string(credentialsId: 'TEST_DATABASE_URI', variable: 'TEST_DATABASE_URI'), string(credentialsId: 'MYSQL_ROOT_PASSWORD', variable: 'MYSQL_ROOT_PASSWORD'), string(credentialsId: 'DB_PASSWORD', variable: 'DB_PASSWORD')]){
                     sh '''
-                    ssh -tt -o "StrictHostKeyChecking=no" -i ${TestServKeyPair} 35.177.30.159 << EOF
+                    ssh -tt -o "StrictHostKeyChecking=no" -i ${TestServKeyPair} ubuntu@ec2-35-177-30-159.eu-west-2.compute.amazonaws.com << EOF
                     export MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD} DATABASE_URI=${DATABASE_URI} DB_PASSWORD=${DB_PASSWORD} TEST_DATABASE_URI=${TEST_DATABASE_URI}
                     git clone https://github.com/krystal-simmonds/SFIA_2.git
                     cd practical-project-pipeline
