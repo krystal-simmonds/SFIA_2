@@ -30,3 +30,12 @@ spec:
         image: krystalsimmonds/sfia_2_database
         ports:
         - containerPort: 5000
+        env:
+        - name: DB_PASSWORD
+          value: ${DB_PASSWORD}
+        - name: DATABASE_URI
+          value: ${DATABASE_URI}
+        - name: TEST_DATABASE_URI
+          value: ${TEST_DATABASE_URI}
+        - name: MYSQL_ROOT_PASSWORD
+          value: ${MYSQL_ROOT_PASSWORD}
