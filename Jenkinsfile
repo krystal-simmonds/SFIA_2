@@ -1,11 +1,11 @@
 pipeline{
         agent any
         stages{
-            stage('Pull Git Repo'){
+            stage('Clone Git Repo'){
                 steps{
                     sh '''
-                    cd ~/SFIA_2
-                    git pull https://github.com/krystal-simmonds/SFIA_2.git
+                    cd ~
+                    git clone https://github.com/krystal-simmonds/SFIA_2.git
                     '''
                 }
             }
