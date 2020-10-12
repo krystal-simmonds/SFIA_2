@@ -15,4 +15,4 @@ ansible_ssh_private_key_file=~/.ssh/JenkinsKeyPair.pem
 ansible_test_user=test
 ansible_test_ssh_common_args='-o StrictHostKeyChecking=no'
 #PEM key used for instance
-ansible_test_ssh_private_key_file=~/.ssh/testkey.pem
+ansible_test_ssh_private_key_file=~/.ssh/TestServKeyPair.pem
