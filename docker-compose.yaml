@@ -3,14 +3,16 @@ version: '3.8'
 services:
 
   frontend:
-    build: krystalsimmonds/sfia_2_frontend
+    image: krystalsimmonds/sfia_2_frontend
+    build: .
     expose:
       - 5000
     depends_on:
       - backend
   
   backend:
-    build: krystalsimmonds/sfia_2_backend
+    image: krystalsimmonds/sfia_2_backend
+    build: .
     expose:
       - 5001
     environment:
@@ -21,7 +23,8 @@ services:
       - database
   
   database:
-    build: krystalsimmonds/sfia_2_database
+    image: krystalsimmonds/sfia_2_database
+    build: .
     environment:
      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
     expose:
