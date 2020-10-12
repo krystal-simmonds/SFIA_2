@@ -5,3 +5,9 @@
   tasks:
   - name: 'install Jenkins'
     script: installjenkins.sh
+
+  - name: 'install docker'
+    script: installdocker.sh
+
+  - name: 'install docker-compose'
+    script: installdockercompose.sh
