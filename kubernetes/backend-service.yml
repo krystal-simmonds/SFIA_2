@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+spec:
+  selector:
+    app: backend-service
+  ports: 
+  - protocol: TCP
+    port: 5000
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-service
+  labels: 
+    app: backend-service
+spec:
+  selector:
+    matchLabels:
+      app: backend-service
+  template:
+    metadata:
+      labels:
+        app: backend-service
+    spec:
+      containers:
+      - name: backend-service
+        image: krystalsimmonds/sfia_2_backend
+        ports:
+        - containerPort: 5000
