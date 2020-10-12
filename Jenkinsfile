@@ -1,14 +1,6 @@
 pipeline{
         agent any
         stages{
-            stage('Pull Git Repo'){
-                steps{
-                    sh '''
-                    cd ~/SFIA_2
-                    git pull https://github.com/krystal-simmonds/SFIA_2.git
-                    '''
-                }
-            }
             stage('Install Docker'){
                 steps{
                     sh ''' 
@@ -36,10 +28,10 @@ pipeline{
                 steps{
                 withCredentials([file(credentialsId: 'TestServKeyPair', variable: 'TestServKeyPair'), string(credentialsId: 'DATABASE_URI', variable: 'DATABASE_URI'), string(credentialsId: 'TEST_DATABASE_URI', variable: 'TEST_DATABASE_URI'), string(credentialsId: 'MYSQL_ROOT_PASSWORD', variable: 'MYSQL_ROOT_PASSWORD'), string(credentialsId: 'DB_PASSWORD', variable: 'DB_PASSWORD')]){
                     sh '''
-                    ssh -tt -o "StrictHostKeyChecking=no" -i ${testkey} ec2-3-11-8-6.eu-west-2.compute.amazonaws.com << EOF
+                    ssh -tt -o "StrictHostKeyChecking=no" -i ${TestServKeyPair} ec2-35-177-30-159.eu-west-2.compute.amazonaws.com << EOF
                     export MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD} DATABASE_URI=${DATABASE_URI} DB_PASSWORD=${DB_PASSWORD} TEST_DATABASE_URI=${TEST_DATABASE_URI}
                     git clone https://github.com/krystal-simmonds/SFIA_2.git
-                    cd SFIA_2
+                    cd cd SFIA2\ -\ Practical\ Project
                     sudo -E MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD} DATABASE_URI=${DATABASE_URI} DB_PASSWORD=${DB_PASSWORD} TEST_DATABASE_URI=${TEST_DATABASE_URI} docker-compose up -d
                     EOF
                     '''
