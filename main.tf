@@ -11,7 +11,7 @@ resource "aws_instance" "jenkins" {
 resource "aws_instance" "test" {
   ami           = var.ami
   instance_type = var.type
-  key_name = "testkey"
+  key_name      = "testkey"
 }
 
 resource "aws_db_instance" "default" {

@@ -1,9 +1,18 @@
-[host]
-#amazon ec2 instance DNS
+[jenkins]
+#jenkins instance IP
 3.10.142.58
 
-[host:vars]
+[test]
+#test instance IP
+
+[jenkins:vars]
 ansible_user=ubuntu
 ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 #PEM KEY OF AWS INSTANCE
 ansible_ssh_private_key_file=~/.ssh/JenkinsKeyPair.pem
+
+[test:vars]
+ansible_test_user=test
+ansible_test_ssh_common_args='-o StrictHostKeyChecking=no'
+#PEM key used for instance
+ansible_test_ssh_private_key_file=~/.ssh/testkey.pem
