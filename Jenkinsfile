@@ -31,7 +31,7 @@ pipeline{
                     ssh -tt -o "StrictHostKeyChecking=no" -i ${TestServKeyPair} ubuntu@ec2-35-177-30-159.eu-west-2.compute.amazonaws.com << EOF
                     export MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD} DATABASE_URI=${DATABASE_URI} DB_PASSWORD=${DB_PASSWORD} TEST_DATABASE_URI=${TEST_DATABASE_URI}
                     git clone https://github.com/krystal-simmonds/SFIA_2.git
-                    cd practical-project-pipeline
+                    cd SFIA_2
                     sudo -E MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD} DATABASE_URI=${DATABASE_URI} DB_PASSWORD=${DB_PASSWORD} TEST_DATABASE_URI=${TEST_DATABASE_URI} docker-compose up -d
                     EOF
                     '''
