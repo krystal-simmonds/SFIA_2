@@ -1,10 +1,10 @@
 [jenkins]
 #jenkins instance IP
-3.10.5.25
+3.10.144.51
 
 [test]
 #test instance IP
-3.11.8.6
+35.177.30.159
 
 [jenkins:vars]
 ansible_user=ubuntu
@@ -13,7 +13,7 @@ ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 ansible_ssh_private_key_file=~/.ssh/JenkinsKeyPair.pem
 
 [test:vars]
-ansible_test_user=test
+ansible_test_user=ubuntu
 ansible_test_ssh_common_args='-o StrictHostKeyChecking=no'
 #PEM key used for instance
 ansible_test_ssh_private_key_file=~/.ssh/TestServKeyPair.pem
