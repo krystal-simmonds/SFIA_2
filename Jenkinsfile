@@ -1,18 +1,6 @@
 pipeline{
         agent any
         stages{
-            stage('Clone Git Repo'){
-                steps{
-                    sh '''
-                    cd ~
-                    if [-d "SFIA_2"]
-                        then cd SFIA_2 && git pull https://github.com/krystal-simmonds/SFIA_2.git
-                    else
-                        git clone https://github.com/krystal-simmonds/SFIA_2.git
-                    fi
-                    '''
-                }
-            }
             stage('Install Docker'){
                 steps{
                     sh ''' 
