@@ -3,16 +3,14 @@ version: '3.8'
 services:
 
   frontend:
-    image: krystalsimmonds/sfia_2_frontend
-    build: .
+    build: ./frontend
     expose:
       - 5000
     depends_on:
       - backend
   
   backend:
-    image: krystalsimmonds/sfia_2_backend
-    build: .
+    build: ./backend
     expose:
       - 5001
     environment:
