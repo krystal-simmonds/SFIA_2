@@ -23,8 +23,7 @@ services:
       - database
   
   database:
-    image: krystalsimmonds/sfia_2_database
-    build: .
+    build: ./database
     environment:
      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
     expose:
