@@ -5,7 +5,10 @@ pipeline{
                 steps{
                     sh '''
                     cd ~
-                    git clone https://github.com/krystal-simmonds/SFIA_2.git
+                    if [-d "SFIA_2"]
+                        then git pull https://github.com/krystal-simmonds/SFIA_2.git
+                    else
+                        git clone https://github.com/krystal-simmonds/SFIA_2.git
                     '''
                 }
             }
