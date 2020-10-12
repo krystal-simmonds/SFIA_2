@@ -1,10 +1,10 @@
 [jenkins]
 #jenkins instance IP
-3.10.144.51
+18.134.94.218
 
 [test]
 #test instance IP
-35.177.30.159
+35.178.75.123
 
 [jenkins:vars]
 ansible_user=ubuntu
