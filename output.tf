@@ -13,4 +13,9 @@ output "test_instance_public_DNS" {
   value       = aws_instance.test.public_dns
 }
 
+output "test_instance_public_ip" {
+  description = "Public IP for test EC2 instance"
+  value = aws_instance.test.public_ip
+}
+
 
