@@ -38,5 +38,13 @@ pipeline{
                 }
                 }
             }
+                stage('Run tests'){
+                    steps{
+                        sh '''
+                        docker exec sfia_2_frontend_1 pytest --cov application >> frontend_tests.txt
+                        docker exec sfia_2_backend_1 pytest --cov application >> backend_tests.txt
+                        exit
+                        '''
+                        
         }    
 }
