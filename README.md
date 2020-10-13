@@ -27,10 +27,10 @@ AWS is the cloud provider for this project. Two different AWS services are used 
 Docker and Docker Compose are the containerisation tools used for this project. They allow me to create a replicable lightweight container that contains the application's code and allows for the application and all of it's dependencies to be run from any system. 
 
 ### *Reverse Proxy*
-NGINX
+NGINX is software that can be used as a Load Balancer, HTTP Cache, or Reverse Proxy. In this project it was used as a Reverse Proxy. This allowed the static files of the application to be served and helped with security, as only port 80 needed to be open. 
 
 ### *Orchestration Tool*
-Kubernetes
+Kubernetes was used to spin up a cluster made up of a master node and 2 worker nodes. Kubernetes allows me to define how many nodes should be up and running in the cluster at all times. This is known as the desired state.
 
 ### *Infrastructure Management*
 Terraform was used to spin up my Jenkins server and the server used in the testing environment. I would then connect to these servers manually via SSH and Ansible would then connect to these servers to carry out tasks outlined in the project's playbook. 
