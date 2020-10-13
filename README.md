@@ -11,9 +11,6 @@ The aim of this project is to successfully and efficiently deploy a simple Flask
 * Infrastructure Management
 * Orchestration
 
-### Kanban Board
-Jira
-
 ### *VCS*
 Git was used as the Version Control System and GitHub as the host. A repository was used as the central base for the source code. When changes were made to a branch, it would trigger a build in the Jenkins CI server to start a new build and test it. 
 
@@ -27,16 +24,16 @@ Ansible is used to install Jenkins on to an AWS EC2 instance. An inventory file,
 AWS is the cloud provider for this project. Two different AWS services are used in this project; EC2 and RDS. EC2 allows you to easily spin up Virtual Machines and RDS is Amazon's very own Relational Database service. These two cloud services can easily be created via the AWS console or the Command Line Interface. 
 
 ### *Containerisation*
-Docker and Docker Compose are used as containerisation tools 
+Docker and Docker Compose are the containerisation tools used for this project. They allow me to create a replicable lightweight container that contains the application's code and allows for the application and all of it's dependencies to be run from any system. 
 
 ### *Reverse Proxy*
 NGINX
 
-### Orchestration Tool
+### *Orchestration Tool*
 Kubernetes
 
-### Infrastructure Management
-Terraform
+### *Infrastructure Management*
+Terraform was used to spin up my Jenkins server and the server used in the testing environment. I would then connect to these servers manually via SSH and Ansible would then connect to these servers to carry out tasks outlined in the project's playbook. 
 
 ## **Planning**
 To help plan this project I used a Scrum board on Jira. Tasks were organised into epics, which were then added to sprints to help me keep focused on the tasks at hand. Below is a screenshot of my backlog. 
