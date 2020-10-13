@@ -45,6 +45,7 @@ pipeline{
                         docker exec sfia_2_backend_1 pytest --cov application >> backend_tests.txt
                         exit
                         '''
-                        
+                    }
+                }
         }    
 }
